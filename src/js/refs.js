@@ -1,5 +1,5 @@
 export default {
-  form: document.querySelector(".form"),
-  searchBtn: document.querySelector(".searchBtn"),
-  gallery: document.querySelector(".gallery"),
+  body: document.querySelector("body"),
+  startBtn: document.querySelector('button[data-action="start"]'),
+  stopBtn: document.querySelector('button[data-action="stop"]'),
 };

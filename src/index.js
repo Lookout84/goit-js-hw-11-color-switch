@@ -1,22 +1,27 @@
 import css from "./css/styles.css";
-// import libs from "./js/libs.js";
+import refs from "./js/refs.js";
+import colors from "./js/colors.js";
 
-import fetchObject from "./js/fetch.js";
-// console.log(fetchObject);
+const randomIntegerFromInterval = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
 
-import x from "./js/refs.js";
-// console.log(x.form);
+console.log(colors);
 
-const { form, searchBtn, gallery } = x;
-// console.log(form, searchBtn, gallery);
+console.dir(refs.startBtn);
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  // console.log(e);
-  // console.log(e.target);
-  // console.log(e.target.elements);
-  // console.log(e.target.elements.query);
-  console.log(e.target.elements.query.value);
-  const inputValue = e.target.elements.query.value;
-  fetchObject.getFetch(inputValue, gallery);
-});
+const colorSwitcher = setInterval(() => {
+  // if ()
+  let bodyBg = refs.body.style.background;
+  bodyBg = colors[randomIntegerFromInterval(0, colors.length - 1)];
+}, 1000);
+
+refs.startBtn.addEventListener("click", colorSwitcher);
+
+// function pressOnStartSwColors() {
+//   refs.body.style.background =
+//     colors[randomIntegerFromInterval(0, colors.length - 1)];
+// }
+// // console.log(
+//   randomIntegerFromInterval(parseInt(FFFFFF, 16), parseInt(795548, 16)),
+// );
