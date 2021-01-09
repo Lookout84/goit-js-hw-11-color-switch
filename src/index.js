@@ -5,23 +5,24 @@ import colors from "./js/colors.js";
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
+let colorSwitcher = null;
 
-console.log(colors);
+refs.startBtn.addEventListener("click", pressOnStartSwColors);
 
-console.dir(refs.startBtn);
+function pressOnStartSwColors() {
+  colorSwitcher = setInterval(() => {
+    refs.body.style.background =
+      colors[randomIntegerFromInterval(0, colors.length - 1)];
+  }, 1000);
+  refs.startBtn.disabled = true;
+}
 
-const colorSwitcher = setInterval(() => {
-  // if ()
-  let bodyBg = refs.body.style.background;
-  bodyBg = colors[randomIntegerFromInterval(0, colors.length - 1)];
-}, 1000);
+refs.stopBtn.addEventListener("click", stopColorSwitcher);
 
-refs.startBtn.addEventListener("click", colorSwitcher);
-
-// function pressOnStartSwColors() {
-//   refs.body.style.background =
-//     colors[randomIntegerFromInterval(0, colors.length - 1)];
-// }
-// // console.log(
-//   randomIntegerFromInterval(parseInt(FFFFFF, 16), parseInt(795548, 16)),
-// );
+function stopColorSwitcher() {
+  if ((refs.startBtn.disabled = true)) {
+    refs.startBtn.disabled = false;
+    clearInterval(colorSwitcher);
+  }
+  return;
+}
