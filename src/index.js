@@ -15,14 +15,15 @@ function pressOnStartSwColors() {
       colors[randomIntegerFromInterval(0, colors.length - 1)];
   }, 1000);
   refs.startBtn.disabled = true;
+  refs.stopBtn.disabled = false;
 }
 
 refs.stopBtn.addEventListener("click", stopColorSwitcher);
 
 function stopColorSwitcher() {
-  if ((refs.startBtn.disabled = true)) {
+  if (refs.startBtn.disabled != false) {
     refs.startBtn.disabled = false;
+    refs.stopBtn.disabled = true;
     clearInterval(colorSwitcher);
   }
-  return;
 }
